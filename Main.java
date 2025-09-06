@@ -32,6 +32,9 @@ public class Main {
         else if (dividedSentence[0].isEmpty()) {
             System.out.println("Cannot be empty. Please enter a valid sentence.");
         }
+        else if(!dividedSentence[1].matches(".*\\b(bought|built|acquired|sold|upgraded)\\b.*")) {
+            System.out.println("Invalid sentence. Please follow the format '<subject> <verb> <item(s)>' since the second word is not an action.");
+        }
         else {
             acceptedSentence = sentence;
             System.out.println();
