@@ -1,3 +1,4 @@
+import javax.xml.transform.Source;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -14,32 +15,40 @@ public class Main {
                 "Enter your sentence below:");
     try {
         String sentence = scanner.nextLine();
-        String[] dividedSentence = sentence.toUpperCase().split(" ");
-        String acceptedSentence;
-        if ((dividedSentence[0].matches(".*\\b(bought|purchased|built|acquired|upgraded)\\b.*"))) {
+        String[] dividedSentence = sentence.split(" ");
+        String acceptedSentence = "";
+        if ((dividedSentence[0].matches(".*\\b(bought|built|acquired|sold|upgraded)\\b.*"))){
 
             System.out.println("Invalid sentence. Please follow the format '<subject> <verb> <item(s)>' since the first word is not a subject.");
-        } else if (Items.weaponsAP.contains(dividedSentence[0]) ||
-                Items.weaponsAD.contains(dividedSentence[0]) ||
-                Items.armorPhysical.contains(dividedSentence[0]) ||
-                Items.armorMagic.contains(dividedSentence[0]) ||
-                Items.boots.contains(dividedSentence[0])) {
+        }
+        else if (Items.weaponsAP.contains(dividedSentence[0].toUpperCase()) ||
+                Items.weaponsAD.contains(dividedSentence[0].toUpperCase()) ||
+                Items.armorPhysical.contains(dividedSentence[0].toUpperCase()) ||
+                Items.armorMagic.contains(dividedSentence[0].toUpperCase()) ||
+                Items.boots.contains(dividedSentence[0].toUpperCase())) {
 
             System.out.println("Invalid sentence. Please follow the format '<subject> <verb> <item(s)>' since the first word is not a subject.");
-        } else if (dividedSentence[0].isEmpty()) {
+        }
+        else if (dividedSentence[0].isEmpty()) {
             System.out.println("Cannot be empty. Please enter a valid sentence.");
-        } else {
+        }
+        else {
             acceptedSentence = sentence;
-            printCFG(acceptedSentence);
+            System.out.println();
+            PrintCFGPhases.printCFG(acceptedSentence);
+            PrintCFGPhases.printPhaseTwo(dividedSentence[0],dividedSentence[1],acceptedSentence);
         }
 
-    }catch (Exception e) {
+        }catch(IndexOutOfBoundsException e) {
+        System.out.println("Invalid sentence. Please follow the format \"<subject> <verb> <item(s)>\"\n" +
+                "ensure you include at least one subject, one verb, one item.");
+        }catch (Exception e) {
         System.out.println("An error occurred");
-    } finally {
+         } finally {
         scanner.close();
-    }}
-
-
+        }
+    }
+}
 
     /**<program> → <sentence>
      <sentence> → <subject> <verb> <item>
@@ -63,16 +72,4 @@ public class Main {
      ⇒ Ben built Berserker's Greaves
      */
 
-
-    public static void printCFG(String input) {
-        Tokens parsedTokens = ActualTokenizer.tokenize(input);
-        System.out.println(parsedTokens.getSubject() + " → <subject>");
-        System.out.println(parsedTokens.getCommand() + " → <verb>");
-
-        for (String item : InputHelper.extractItems(input)) {
-            TokenType type = Classifier.ItemClassifier(item);
-            System.out.println(item + " → <" + type.name() + ">");
-        }
-    }
-}
 

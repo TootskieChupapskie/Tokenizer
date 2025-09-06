@@ -3,7 +3,7 @@ import java.util.List;
 
 public class InputHelper {
     public static String extractCommand(String input){
-        String[] knownCommands = { "built", "bought", "sold", "upgraded" };
+        String[] knownCommands = { "built", "bought", "sold", "upgraded" , "acquired"};
         String command = null;
         int verbIndex = -1;
 
