@@ -10,8 +10,8 @@ public class Main {
         Classifier classifier = new Classifier();
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n(Instructions: Please enter a built item sentence in the format '<subject> <verb> <item(s)>')\n" +
-                "-(Only input <item(s)> that are accessible in the Summoners Rift Shop in League of Legends)-\n" +
-                "-----------------(Example: \"Ben built Bloodthirster and Infinity Edge\")-------------------\n\n"+
+                " (Only input <item(s)> that are accessible in the Summoners Rift Shop in League of Legends)\n" +
+                "  ---------------(Example: \"Ben built Bloodthirster and Infinity Edge\")-------------------\n\n"+
                 "Enter your sentence below:");
     try {
         String sentence = scanner.nextLine();

@@ -2,6 +2,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PrintCFGPhases {
+
+    public static void printCFG(String input) {
+        Tokens parsedTokens = ActualTokenizer.tokenize(input);
+        System.out.println("Phase 1:");
+        System.out.println(parsedTokens.getSubject() + " → <subject>");
+        System.out.println(parsedTokens.getCommand() + " → <verb>");
+
+        for (String item : InputHelper.extractItems(input)) {
+            TokenType type = Classifier.ItemClassifier(item);
+            System.out.println(item + " → <" + type.name() + ">");
+        }
+    }
+
     public static void printPhaseTwo(String subject, String command, String items) {
         System.out.println("\nPhase 2:");
         System.out.println("  <program>");
@@ -76,17 +89,5 @@ public class PrintCFGPhases {
         System.out.println("→ " + subject + " " + command + " <item> ; <sentence>");
         System.out.println("→ " + subject + " " + command + " <" + type.name() + "> ; <sentence>");
         System.out.println("→ " + subject + " " + command + " " + item + "; <sentence>");
-    }
-
-    public static void printCFG(String input) {
-        Tokens parsedTokens = ActualTokenizer.tokenize(input);
-        System.out.println("Phase 1:");
-        System.out.println(parsedTokens.getSubject() + " → <subject>");
-        System.out.println(parsedTokens.getCommand() + " → <verb>");
-
-        for (String item : InputHelper.extractItems(input)) {
-            TokenType type = Classifier.ItemClassifier(item);
-            System.out.println(item + " → <" + type.name() + ">");
-        }
     }
 }
