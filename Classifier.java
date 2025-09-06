@@ -7,7 +7,7 @@ public class Classifier {
     }
 
     public static TokenType ItemClassifier(String item) {
-        item = item.trim();
+        item = item.toUpperCase().trim();
 
         if (Items.boots.contains(item)) return TokenType.boots;
         if (Items.armorPhysical.contains(item)) return TokenType.armorPhysical;

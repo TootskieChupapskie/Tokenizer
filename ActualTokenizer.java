@@ -3,7 +3,7 @@ import java.util.List;
 
 public class ActualTokenizer {
     public static Tokens tokenize(String input) {
-        String verb = InputHelper.extractVerb(input);
+        String command = InputHelper.extractCommand(input);
         String subject = InputHelper.extractSubject(input);
         List<String> rawItems = InputHelper.extractItems(input);
 
@@ -14,7 +14,8 @@ public class ActualTokenizer {
             itemTokens.add(itemToken);
         }
 
-        return new Tokens(subject, verb, itemTokens);
+        return new Tokens(subject, command, itemTokens);
     }
 }
+
 

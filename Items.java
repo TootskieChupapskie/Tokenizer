@@ -4,44 +4,47 @@ import java.util.Arrays;
 
 public class Items{
     public static final Set<String> boots = new HashSet<>(Arrays.asList(
-            "Berserker's Greaves", "Boots of Swiftness", "Ionian Boots of Lucidity",
-            "Mercury's Treads", "Plated Steelcaps", "Sorcerer's Shoes",
-            "Slightly Magical Boots", "Boots"
+            "BERSERKER'S GREAVES", "BOOTS OF SWIFTNESS", "IONIAN BOOTS OF LUCIDITY",
+            "MERCURY'S TREADS", "PLATED STEELCAPS", "SORCERER'S SHOES",
+            "SLIGHTLY MAGICAL BOOTS", "BOOTS"
     ));
 
     public static final Set<String> armorPhysical = new HashSet<>(Arrays.asList(
-            "Cloth Armor", "Chain Vest", "Warden's Mail", "Bramble Vest", "Glacial Buckler",
-            "Dead Man's Plate", "Frozen Heart", "Randuin's Omen", "Thornmail",
-            "Gargoyle Stoneplate", "Iceborn Gauntlet", "Sunfire Aegis", "Guardian Angel",
-            "Zeke's Convergence", "Knight's Vow", "Death's Dance", "Jak'Sho, The Protean",
-            "Unending Despair", "Shield of the Rakkor"
+            "CLOTH ARMOR", "CHAIN VEST", "WARDEN'S MAIL", "BRAMBLE VEST", "GLACIAL BUCKLER",
+            "DEAD MAN'S PLATE", "FROZEN HEART", "RANDUIN'S OMEN", "THORNMAIL",
+            "GARGOYLE STONEPLATE", "ICEBORN GAUNTLET", "SUNFIRE AEGIS", "GUARDIAN ANGEL",
+            "ZEKE'S CONVERGENCE", "KNIGHT'S VOW", "DEATH'S DANCE", "JAK'SHO, THE PROTEAN",
+            "UNENDING DESPAIR", "SHIELD OF THE RAKKOR"
+
     ));
 
     public static final Set<String> armorMagic = new HashSet<>(Arrays.asList(
-            "Null-Magic Mantle", "Negatron Cloak", "Spectre's Cowl", "Force of Nature",
-            "Spirit Visage", "Kaenic Rookern", "Abyssal Mask", "Banshee's Veil",
-            "Maw of Malmortius", "Wit's End", "Mercurial Scimitar", "Jak'Sho, The Protean"
+            "NULL-MAGIC MANTLE", "NEGATRON CLOAK", "SPECTRE'S COWL", "FORCE OF NATURE",
+            "SPIRIT VISAGE", "KAENIC ROOKERN", "ABYSSAL MASK", "BANSHEE'S VEIL",
+            "MAW OF MALMORTIUS", "WIT'S END", "MERCURIAL SCIMITAR", "JAK'SHO, THE PROTEAN"
+
     ));
 
     public static final Set<String> weaponsAD = new HashSet<>(Arrays.asList(
-            "Infinity Edge", "Navori Flickerblade", "Kraken Slayer", "Terminus", "Bloodthirster",
-            "Essence Reaver", "Stormrazor", "Phantom Dancer", "Rapid Firecannon", "Statikk Shiv",
-            "Runaan's Hurricane", "The Collector", "Lord Dominik's Regards", "Mortal Reminder",
-            "Serylda's Grudge", "Black Cleaver", "Death's Dance", "Ravenous Hydra", "Titanic Hydra",
-            "Trinity Force", "Spear of Shojin", "Stridebreaker", "Sundered Sky", "Profane Hydra",
-            "Youmuu's Ghostblade", "Duskblade of Draktharr", "Edge of Night", "Voltaic Cyclosword",
-            "Opportunity", "Umbral Glaive", "Serpent's Fang", "Blade of The Ruined King",
-            "Hullbreaker", "Guardian Angel", "Manamune", "Muramana"
+            "INFINITY EDGE", "NAVORI FLICKERBLADE", "KRAKEN SLAYER", "TERMINUS", "BLOODTHIRSTER",
+            "ESSENCE REAVER", "STORMRAZOR", "PHANTOM DANCER", "RAPID FIRECANNON", "STATIKK SHIV",
+            "RUNAAN'S HURRICANE", "THE COLLECTOR", "LORD DOMINIK'S REGARDS", "MORTAL REMINDER",
+            "SERYLDA'S GRUDGE", "BLACK CLEAVER", "DEATH'S DANCE", "RAVENOUS HYDRA", "TITANIC HYDRA",
+            "TRINITY FORCE", "SPEAR OF SHOJIN", "STRIDEBREAKER", "SUNDERED SKY", "PROFANE HYDRA",
+            "YOUMUU'S GHOSTBLADE", "DUSKBLADE OF DRAKTHARR", "EDGE OF NIGHT", "VOLTAIC CYCLOSWORD",
+            "OPPORTUNITY", "UMBRAL GLAIVE", "SERPENT'S FANG", "BLADE OF THE RUINED KING",
+            "HULLBREAKER", "GUARDIAN ANGEL", "MANAMUNE", "MURAMANA"
+
     ));
 
     public static final Set<String> weaponsAP = new HashSet<>(Arrays.asList(
-            "Rabadon's Deathcap", "Luden's Companion", "Liandry's Torment", "Lich Bane",
-            "Nashor's Tooth", "Void Staff", "Shadowflame", "Morellonomicon",
-            "Rylai's Crystal Scepter", "Hextech Rocketbelt", "Riftmaker", "Rod of Ages",
-            "Archangel's Staff", "Seraph's Embrace", "Zhonya's Hourglass", "Banshee's Veil",
-            "Stormsurge", "Cryptbloom", "Malignance", "Blackfire Torch", "Dawncore",
-            "Cosmic Drive", "Horizon Focus", "Demonic Embrace", "Crown of the Shattered Queen",
-            "Shurelya's Battlesong", "Imperial Mandate", "Echoes of Helia", "Moonstone Renewer",
-            "Staff of Flowing Water", "Ardent Censer", "Mikael's Blessing", "Zaz'Zak's Realmspike"
+            "RABADON'S DEATHCAP", "LUDEN'S COMPANION", "LIANDRY'S TORMENT", "LICH BANE",
+            "NASHOR'S TOOTH", "VOID STAFF", "SHADOWFLAME", "MORELLONOMICON",
+            "RYLAI'S CRYSTAL SCEPTER", "HEXTECH ROCKETBELT", "RIFTMAKER", "ROD OF AGES",
+            "ARCHANGEL'S STAFF", "SERAPH'S EMBRACE", "ZHONYA'S HOURGLASS", "BANSHEE'S VEIL",
+            "STORMSURGE", "CRYPTBLOOM", "MALIGNANCE", "BLACKFIRE TORCH", "DAWNCORE",
+            "COSMIC DRIVE", "HORIZON FOCUS", "DEMONIC EMBRACE", "CROWN OF THE SHATTERED QUEEN",
+            "SHURELYA'S BATTLESONG", "IMPERIAL MANDATE", "ECHOES OF HELIA", "MOONSTONE RENEWER",
+            "STAFF OF FLOWING WATER", "ARDENT CENSER", "MIKAEL'S BLESSING", "ZAZ'ZAK'S REALMSPIKE"
     ));
 }

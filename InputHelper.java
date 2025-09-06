@@ -2,20 +2,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputHelper {
-    public static String extractVerb(String input){
-        String[] knownVerbs = { "built", "bought", "sold", "upgraded" };
-        String verb = null;
+    public static String extractCommand(String input){
+        String[] knownCommands = { "built", "bought", "sold", "upgraded" };
+        String command = null;
         int verbIndex = -1;
 
-        for(String v: knownVerbs){
+        for(String v: knownCommands){
             int index = input.toLowerCase().indexOf(v);
             if (index != -1){
-                verb = v;
+                command = v;
                 verbIndex = index;
                 break;
             }
         }
-        return verb;
+        return command;
     }
 
     public static String extractSubject(String input){
@@ -25,7 +25,7 @@ public class InputHelper {
 
     public static List<String> extractItems(String input){
         List<String> items = new ArrayList<>();
-        String verb = extractVerb(input);
+        String verb = extractCommand(input);
 
         if (verb == null){
             return items;
@@ -46,7 +46,7 @@ public class InputHelper {
     public static List<String> Convert(String input){
         List<String> convertedInput = new ArrayList<>();
         convertedInput.add(extractSubject(input));
-        convertedInput.add(extractVerb(input));
+        convertedInput.add(extractCommand(input));
         convertedInput.addAll(extractItems(input));
 
         return convertedInput;
