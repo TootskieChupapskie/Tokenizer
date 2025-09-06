@@ -1,27 +1,68 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 
 public class Main {
     public static void main(String[] args) {
+        Classifier classifier = new Classifier();
         Scanner scanner = new Scanner(System.in);
+        System.out.println("\n(Instructions: Please enter a built item sentence in the format '<subject> <verb> <item(s)>')\n" +
+                "-(Only input <item(s)> that are accessible in the Summoners Rift Shop in League of Legends)-\n" +
+                "-----------------(Example: \"Ben built Bloodthirster and Infinity Edge\")-------------------\n\n"+
+                "Enter your sentence below:");
+    try {
+        String sentence = scanner.nextLine();
+        String[] dividedSentence = sentence.toUpperCase().split(" ");
+        String acceptedSentence;
+        if ((dividedSentence[0].matches(".*\\b(bought|purchased|built|acquired|upgraded)\\b.*"))) {
 
-        String testCase1 = "Ben built boots";
-        String testCase2 = "Ben built Bloodthirster and Infinity Edge";
+            System.out.println("Invalid sentence. Please follow the format '<subject> <verb> <item(s)>' since the first word is not a subject.");
+        } else if (Items.weaponsAP.contains(dividedSentence[0]) ||
+                Items.weaponsAD.contains(dividedSentence[0]) ||
+                Items.armorPhysical.contains(dividedSentence[0]) ||
+                Items.armorMagic.contains(dividedSentence[0]) ||
+                Items.boots.contains(dividedSentence[0])) {
+
+            System.out.println("Invalid sentence. Please follow the format '<subject> <verb> <item(s)>' since the first word is not a subject.");
+        } else if (dividedSentence[0].isEmpty()) {
+            System.out.println("Cannot be empty. Please enter a valid sentence.");
+        } else {
+            acceptedSentence = sentence;
+            printCFG(acceptedSentence);
+        }
+
+    }catch (Exception e) {
+        System.out.println("An error occurred");
+    } finally {
+        scanner.close();
+    }}
 
 
-        Classifier.sentenceClassifier(testCase1);
+
+    /**<program> → <sentence>
+     <sentence> → <subject> <verb> <item>
+     <itemList> → <item>
+     <item> → <boots> | <armor> | <weapon>
+     <boots> → Berserker's Greaves | Mercury's Treads
+     <armor> → Thornmail | Randuin's Omen
+     <weapon> → Bloodthirster | Infinity Edge
+
+     <sentence> → <subject> <verb> <itemList>
+     <itemList> → <item> | <item> , <itemList> | <item> and <itemList>
+     <item> → <category> → <itemName>
 
 
-//        String subject = InputHelper.extractSubject(testCase1);
-//        String verb = InputHelper.extractCommand(testCase2);
-//
-//        InputHelper.extractItems(testCase2);
-//        System.out.println(subject + " " + verb + " " + InputHelper.extractItems(testCase2));
+     Sample output
+     <program>
+     ⇒ <sentence>
+     ⇒ <subject> <Command> <itemList>
+     ⇒ Ben built <item>
+     ⇒ Ben built <boots>
+     ⇒ Ben built Berserker's Greaves
+     */
 
-        printCFG(testCase1);
-    }
 
     public static void printCFG(String input) {
         Tokens parsedTokens = ActualTokenizer.tokenize(input);
@@ -34,3 +75,4 @@ public class Main {
         }
     }
 }
+

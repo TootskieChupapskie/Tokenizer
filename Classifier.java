@@ -2,6 +2,17 @@ public class Classifier {
     public static TokenType sentenceClassifier(String input) {
         if (input.contains(",") || input.contains(" and ")) {
             return TokenType.compound;
+        }else if(input.matches(".*\\b(bought|purchased|built|acquired)\\b.*")){
+            return TokenType.command;
+        } else if(input.matches("^[A-Z][a-z]+(?: [A-Z][a-z]+)*$\n")) {
+            return TokenType.subject;
+        } else if(Items.boots.contains(input) ||
+                Items.armorPhysical.contains(input) ||
+                Items.armorMagic.contains(input) ||
+                Items.weaponsAD.contains(input) ||
+                Items.weaponsAP.contains(input))
+        {
+            return TokenType.item;
         }
         return TokenType.simple;
     }
