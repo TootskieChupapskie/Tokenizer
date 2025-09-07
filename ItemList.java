@@ -2,7 +2,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.Arrays;
 
-public class Items{
+public class ItemList {
     public static final Set<String> boots = new HashSet<>(Arrays.asList(
             "BERSERKER'S GREAVES", "BOOTS OF SWIFTNESS", "IONIAN BOOTS OF LUCIDITY",
             "MERCURY'S TREADS", "PLATED STEELCAPS", "SORCERER'S SHOES",

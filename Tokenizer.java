@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActualTokenizer {
+public class Tokenizer {
     public static Tokens tokenize(String input) {
         String command = InputHelper.extractCommand(input);
         String subject = InputHelper.extractSubject(input);

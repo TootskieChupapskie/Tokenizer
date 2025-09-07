@@ -1,7 +1,3 @@
-import javax.xml.transform.Source;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -14,18 +10,18 @@ public class Main {
                 "  ---------------(Example: \"Ben built Bloodthirster and Infinity Edge\")-------------------\n\n"+
                 "Enter your sentence below:");
     try {
-        String sentence = scanner.nextLine();
+        String sentence = scanner.nextLine().trim();
         String[] dividedSentence = sentence.split(" ");
         String acceptedSentence = "";
         if ((dividedSentence[0].matches(".*\\b(bought|built|acquired|sold|upgraded)\\b.*"))){
 
             System.out.println("Invalid sentence. Please follow the format '<subject> <verb> <item(s)>' since the first word is not a subject.");
         }
-        else if (Items.weaponsAP.contains(dividedSentence[0].toUpperCase()) ||
-                Items.weaponsAD.contains(dividedSentence[0].toUpperCase()) ||
-                Items.armorPhysical.contains(dividedSentence[0].toUpperCase()) ||
-                Items.armorMagic.contains(dividedSentence[0].toUpperCase()) ||
-                Items.boots.contains(dividedSentence[0].toUpperCase())) {
+        else if (ItemList.weaponsAP.contains(dividedSentence[0].toUpperCase()) ||
+                ItemList.weaponsAD.contains(dividedSentence[0].toUpperCase()) ||
+                ItemList.armorPhysical.contains(dividedSentence[0].toUpperCase()) ||
+                ItemList.armorMagic.contains(dividedSentence[0].toUpperCase()) ||
+                ItemList.boots.contains(dividedSentence[0].toUpperCase())) {
 
             System.out.println("Invalid sentence. Please follow the format '<subject> <verb> <item(s)>' since the first word is not a subject.");
         }
@@ -38,8 +34,8 @@ public class Main {
         else {
             acceptedSentence = sentence;
             System.out.println();
-            PrintCFGPhases.printCFG(acceptedSentence);
-            PrintCFGPhases.printPhaseTwo(dividedSentence[0],dividedSentence[1],acceptedSentence);
+            PrintPhases.printPhaseOne(acceptedSentence);
+            PrintPhases.printPhaseTwo(dividedSentence[0],dividedSentence[1],acceptedSentence);
         }
 
         }catch(IndexOutOfBoundsException e) {

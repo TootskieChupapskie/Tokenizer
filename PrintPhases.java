@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class PrintCFGPhases {
+public class PrintPhases {
 
-    public static void printCFG(String input) {
-        Tokens parsedTokens = ActualTokenizer.tokenize(input);
+    public static void printPhaseOne(String input) {
+        Tokens parsedTokens = Tokenizer.tokenize(input);
         System.out.println("Phase 1:");
         System.out.println(parsedTokens.getSubject() + " → <subject>");
         System.out.println(parsedTokens.getCommand() + " → <verb>");

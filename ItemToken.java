@@ -7,7 +7,4 @@ public class ItemToken extends Tokens {
         this.itemName = itemName;
         this.type = type;
     }
-
-    public String getItemName() { return itemName; }
-    public TokenType getType() { return type; }
 }
