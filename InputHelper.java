@@ -2,6 +2,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputHelper {
+    /**
+     * Summary:
+     * Contians the methods that assist in breaking down the sentence to the defined grammar
+     *
+     * extractCommand uses predetermined commands or actions that is referenced
+     * to find the index of the command
+     *
+     * extractSubject extracts the subject found at the start of the sentence
+     *
+     * extractItems uses extractCommand to determine where to start the splitting of the items
+     */
     public static String extractCommand(String input) {
         String[] knownCommands = {"built", "bought", "sold", "upgraded", "acquired"};
         String command = null;
@@ -36,7 +47,7 @@ public class InputHelper {
 
         String itemsString = input.substring(startofItems);
 
-        String[] itemArr = itemsString.split(", | and ");
+        String[] itemArr = itemsString.split("\\s*,\\s*and\\s*|\\s*,\\s*|\\s+and\\s+");
 
         for (String item : itemArr) {
             items.add(item.trim());

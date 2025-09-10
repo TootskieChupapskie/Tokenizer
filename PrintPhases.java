@@ -3,6 +3,12 @@ import java.util.List;
 
 public class PrintPhases {
 
+    /**
+     * Summary: Contains the process where items are classified as they are printed for each phase
+     *
+     * @param input
+     */
+
     public static void printPhaseOne(String input) {
         Tokens parsedTokens = Tokenizer.tokenize(input);
         System.out.println("Phase 1:");
@@ -37,7 +43,7 @@ public class PrintPhases {
             for (int i = 0; i < itemList.size(); i++) {
                 if (i > 0) {
                     if (i == itemList.size() - 1) {
-                        System.out.print(" ,and ");
+                        System.out.print(", and ");
                     } else {
                         System.out.print(", ");
                     }

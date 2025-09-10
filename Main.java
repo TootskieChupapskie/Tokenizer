@@ -3,6 +3,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        /**
+         *
+         * Summary: This section contain the process that accepts input and checks input before following the printing process
+         *
+         */
+
         Classifier classifier = new Classifier();
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n(Instructions: Please enter a built item sentence in the format '<subject> <verb> <item(s)>')\n" +
@@ -48,19 +54,22 @@ public class Main {
         }
     }
 }
+/**
+ *      <sentence> → <subject> <verb> <itemList>
+ *      <itemList> → <item> | <item> , <itemList> | <item> and <itemList>
+ *      <item> → <category>
+ *      <category> → <itemName>
+ *
+ */
 
-    /**<program> → <sentence>
+
+/**<program> → <sentence>
      <sentence> → <subject> <verb> <item>
      <itemList> → <item>
      <item> → <boots> | <armor> | <weapon>
      <boots> → Berserker's Greaves | Mercury's Treads
      <armor> → Thornmail | Randuin's Omen
      <weapon> → Bloodthirster | Infinity Edge
-
-     <sentence> → <subject> <verb> <itemList>
-     <itemList> → <item> | <item> , <itemList> | <item> and <itemList>
-     <item> → <category> → <itemName>
-
 
      Sample output
      <program>

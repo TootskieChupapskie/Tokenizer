@@ -1,4 +1,11 @@
 public class Classifier {
+    /**
+     *
+     * Summary: This classifies the Items by referencing ItemList and setting the appropriate category
+     * for the item inputted.
+     * If the item is not on the list it is listed as unknown
+     *
+     */
     public static TokenType ItemClassifier(String item) {
         item = item.toUpperCase().trim();
 
